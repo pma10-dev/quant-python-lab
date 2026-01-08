@@ -30,9 +30,13 @@ a complete trading system or backtesting framework.
 import pandas as pd
 import talib
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 # === Load Data ===
-df = pd.read_csv('META_OHLC.csv')
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
+df = pd.read_csv(DATA_DIR / "META_OHLC.csv")
 
 # Ensure lowercase columns
 df.columns = [c.lower() for c in df.columns]
